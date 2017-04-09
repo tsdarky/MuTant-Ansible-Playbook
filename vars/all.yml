@@ -1,0 +1,32 @@
+---
+server:
+    install: '1'
+    timezone: UTC
+    locale: pl_PL.UTF-8
+
+mysql_user_password: ""
+mysql_root_password: ""
+mysql_databases:
+  - name: mutant
+    encoding: utf8
+    collation: utf8_general_ci
+mysql_users:
+  - name: mutant
+    host: "%"
+    password: ""
+    priv: "*.*:ALL"
+
+nginx_sites:
+ - server:
+    file_name: mutant
+    listen: "80 mutant; listen [::]:80 mutant"
+    server_name: "212.237.1.114"
+    root: "/home/mutant/www/public"
+    index: "index.php"
+    location3: {name: ~ /\.ht, deny: "all"}
+    location2: {name:  ~ \.php$, include: "snippets/fastcgi-php.conf", fastcgi_pass: "unix:/run/php/php7.0-fpm.sock"}
+    location1: {name: /, try_files: "$uri $uri/ /index.php?$args"}
+
+
+freetds_host: ""
+freetds_port: ""

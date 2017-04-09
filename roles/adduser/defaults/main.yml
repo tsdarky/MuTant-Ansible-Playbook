@@ -1,0 +1,18 @@
+---
+
+adduser_user_name: mutant
+adduser_user_home: '/home/mutant'
+adduser_user_home_perms: '0700'
+adduser_user_comments: ""
+adduser_sudoroot: true
+adduser_password: '12345a'
+
+## FIXME! not managing empty var, better put dummy/empty file
+adduser_public_keys:
+- dummykey.pub
+#- /path/to/key2.pub
+
+## prepend ?
+#adduser_sshkey_options: 'no-port-forwarding,from="10.0.1.1"'
+
+

@@ -1,0 +1,39 @@
+---
+- name: Update apt
+  become: sudo
+  apt: update_cache=yes
+
+- name: Install System Packages
+  become: sudo
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - curl
+    - wget
+    - zip
+    - python-software-properties
+
+- name: Install Extra Packages
+  become: sudo
+  apt: pkg={{ item }} state=latest
+  with_items: server.packages
+  when: server.packages is defined
+
+- name: Configure the timezone
+  become: sudo
+  template: src=timezone.tpl dest=/etc/timezone
+
+- name: More Configure the timezone
+  become: sudo
+  file: src=/usr/share/zoneinfo/{{server.timezone}} dest=/etc/localtime state=link force=yes backup=yes
+
+- name: Set default system language pack
+  shell: locale-gen {{server.locale}}
+  become: sudo
+
+- name: Install nginx
+  become: sudo
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - nginx
+    - wget
+    - python-software-properties

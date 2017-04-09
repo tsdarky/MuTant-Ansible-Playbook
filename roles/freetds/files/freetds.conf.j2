@@ -1,0 +1,13 @@
+[global]
+tds version = 7.2
+client charset = UTF-8
+dump file = /tmp/freetds.log
+debug flags = 0xffff
+timeout = 10
+connect timeout = 10
+text size = 68157440
+
+[ADMIN-WINDOWS]
+host = {{ freetds_host }}
+port = {{ freetds_port }}
+tds version = {{ freetds_version }}

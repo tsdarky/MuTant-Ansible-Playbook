@@ -1,0 +1,10 @@
+freetds_packages:
+  - freetds-common
+  - freetds-bin
+  - unixodbc
+
+freetds_confdir: /etc/freetds
+
+freetds_host: ""
+freetds_port: ""
+freetds_version: "4.2"

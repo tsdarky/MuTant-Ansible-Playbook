@@ -1,0 +1,14 @@
+---
+- hosts: 127.0.0.1
+  become: sudo
+  vars_files:
+    - vars/all.yml
+  roles:
+    - server
+    - app
+    - adduser
+    - freetds
+    - mysql
+    - nginx
+    - php
+    - composer

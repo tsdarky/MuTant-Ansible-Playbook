@@ -1,0 +1,6 @@
+- name: Ensure freetds packages are installed
+  apt: name={{item}} state=latest
+  with_items: "{{ freetds_packages }}"
+
+- name: Set freetds config
+  copy: src=freetds.conf.j2 dest={{freetds_confdir}}/freetds.conf mode=0644
