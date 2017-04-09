@@ -20,7 +20,7 @@ nginx_sites:
  - server:
     file_name: mutant
     listen: "80 mutant; listen [::]:80 mutant"
-    server_name: "212.237.1.114"
+    server_name: ""
     root: "/home/mutant/www/public"
     index: "index.php"
     location3: {name: ~ /\.ht, deny: "all"}
