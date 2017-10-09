@@ -15,8 +15,8 @@ __php_packages:
   - php-pecl-apcu
   - php-xml
   - php-xmlrpc
-  - php-sybase
-__php_webserver_daemon: "httpd"
+  - php-mysql
+__php_webserver_daemon: "nginx"
 
 __php_conf_paths:
   - /etc
